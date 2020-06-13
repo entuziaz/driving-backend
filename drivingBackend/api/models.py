@@ -24,6 +24,7 @@ class Option(models.Model):
         Question, related_name='options', on_delete=models.CASCADE)
     desc = models.CharField(max_length=255, blank=False,
                             help_text="Enter an option you want displayed", verbose_name="Option")
+    transType = models.CharField(max_length=20, blank=True)
     score = models.IntegerField()
     endpoint = models.BooleanField(blank=False, default=False,)
 
@@ -37,6 +38,7 @@ class Option(models.Model):
 
 class Course(models.Model):
     desc = models.TextField()
+    courseType = models.CharField(max_length=40, null=True)
     transType = models.CharField(max_length=225)
     days = models.IntegerField()
     hours = models.IntegerField()

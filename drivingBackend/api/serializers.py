@@ -5,7 +5,7 @@ from .models import Question, Option, Course, Feature, Customer
 class OptionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Option
-        fields = ('id', 'desc', 'score', 'endpoint')
+        fields = ('id', 'desc', 'transType', 'score', 'endpoint')
 
 
 class QuestionSerializer(serializers.ModelSerializer):
@@ -62,7 +62,7 @@ class CourseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Course
-        fields = ('id', 'desc', 'transType', 'days',
+        fields = ('id', 'desc', 'courseType', 'transType', 'days',
                   'hours', 'fee', 'deposit', 'features')
 
     # method below allows write-create/update to work on Option model
@@ -78,6 +78,8 @@ class CourseSerializer(serializers.ModelSerializer):
         features = (instance.features).all()
         features = list(features)
         instance.desc = validated_data.get('desc', instance.desc)
+        instance.courseType = validated_data.get(
+            'courseType', instance.courseType)
         instance.transType = validated_data.get(
             'transType', instance.transType)
         instance.days = validated_data.get('days', instance.days)
