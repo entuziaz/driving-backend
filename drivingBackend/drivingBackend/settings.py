@@ -138,3 +138,6 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+STRIPE_PUBLISHABLE_KEY = '<your test publishable key here>'
+STRIPE_SECRET_KEY = '<your test secret key here>'
