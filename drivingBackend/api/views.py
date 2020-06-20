@@ -60,7 +60,7 @@ class FeatureView(generics.RetrieveUpdateDestroyAPIView):
 
 
 @csrf_exempt
-def create_intent(request):
+def createIntent(request):
     if request.method == 'POST':
         data = request.POST.get()
 
