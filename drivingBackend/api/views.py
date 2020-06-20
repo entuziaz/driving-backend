@@ -3,12 +3,14 @@ from .models import Question, Option, Course, Feature, Customer
 from .serializers import QuestionSerializer, OptionSerializer, CourseSerializer, FeatureSerializer, CustomerSerializer
 from rest_framework import generics
 
+from django.shortcuts import render, redirect
 from django.conf import settings  # new
 from django.http.response import JsonResponse  # new
 from django.views.decorators.csrf import csrf_exempt  # new
 
 import time
 import stripe
+import json
 
 # Create your views here.
 
@@ -59,6 +61,24 @@ class FeatureView(generics.RetrieveUpdateDestroyAPIView):
 
 @csrf_exempt
 def stripe_config(request):
-    if request.method == 'GET':
-        stripe_config = {'publicKey': settings.STRIPE_PUBLISHABLE_KEY}
+    if request.method == 'POST':
+        data = json.loads(request.body)
+
+        # stripe_config = {'publicKey': settings.STRIPE_PUBLISHABLE_KEY}
         return JsonResponse(stripe_config, safe=False)
+
+        stripe.api_key = settings.STRIPE_PUBLISHABLE_KEY
+
+        # Create a PaymentIntent with the order amount and currency
+        intent = stripe.PaymentIntent.create(
+            amount=2044,
+            currency='gbp',
+            # Verify integration
+            metadata={'integration_check': 'accept_a_payment'},
+        )
+
+    try:
+        return JsonResponse({'publishableKey':	'your test publishable key', 'clientSecret': intent.client_secret})
+
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=403)
