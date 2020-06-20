@@ -6,4 +6,5 @@ from api import views
 urlpatterns = [
     path('questions/', views.QuestionList.as_view()),
     path('courses/', views.CourseList.as_view()),
+    path('create-intent/', views.create_intent),
 ]
