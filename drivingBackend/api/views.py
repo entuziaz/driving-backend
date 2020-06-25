@@ -62,17 +62,17 @@ class FeatureView(generics.RetrieveUpdateDestroyAPIView):
 @csrf_exempt
 def createIntent(request):
     if request.method == 'POST':
-        data = request.POST.get()
+        # data = request.POST.get()
 
         stripe.api_key = settings.STRIPE_PUBLISHABLE_KEY
 
         # Create a PaymentIntent with the order amount and currency
         intent = stripe.PaymentIntent.create(
-            amount=data.get('amount'),
-            currency=data.get('currency'),
-            description=data.get('description'),
-            source=data.get('token'),
-            capture=data.get('capture'),
+            # amount=request.POST.get('amount'),
+            currency=request.POST.get('currency'),
+            description=request.POST.get('description'),
+            source=request.POST.get('token'),
+            capture=request.POST.get('capture'),
 
             # Verify integration
             metadata={'integration_check': 'accept_a_payment'},
