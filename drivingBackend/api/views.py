@@ -1,18 +1,17 @@
+import json
+import stripe
+import time
+from django.views.decorators.csrf import csrf_exempt
+from django.http.response import JsonResponse
+import requests
+from django.conf import settings
+from django.shortcuts import render, redirect
 from django.shortcuts import render
 from .models import Question, Option, Course, Feature, Customer
 from .serializers import QuestionSerializer, OptionSerializer, CourseSerializer, FeatureSerializer, CustomerSerializer
 from rest_framework import generics
-
-from django.shortcuts import render, redirect
-from django.conf import settings  # new
-from django.http.response import JsonResponse  # new
-from django.views.decorators.csrf import csrf_exempt  # new
-
-import time
-import stripe
-import json
-
-# Create your views here.
+import logging
+logger = logging.getLogger(__name__)
 
 
 class QuestionList(generics.ListCreateAPIView):
@@ -61,23 +60,26 @@ class FeatureView(generics.RetrieveUpdateDestroyAPIView):
 
 @csrf_exempt
 def createIntent(request):
-    if request.method == 'POST':
-        # data = request.POST.get()
+    stripe.api_key = settings.STRIPE_PUBLISHABLE_KEY
 
-        stripe.api_key = settings.STRIPE_PUBLISHABLE_KEY
+    if request.method == 'POST':
+        amountGotten = request.POST.get('amount'),
+        currency = request.POST.get('currency'),
+        description = request.POST.get('description')
+
+        # logger.info(description)
 
         # Create a PaymentIntent with the order amount and currency
         intent = stripe.PaymentIntent.create(
-            # amount=request.POST.get('amount'),
-            currency=request.POST.get('currency'),
-            description=request.POST.get('description'),
+            amount=amountGotten,
+            currency=currency,
+            description=description,
             source=request.POST.get('token'),
             capture=request.POST.get('capture'),
 
             # Verify integration
             metadata={'integration_check': 'accept_a_payment'},
         )
-
     try:
         return JsonResponse({'publishableKey':	'your test publishable key', 'clientSecret': intent.client_secret})
 
