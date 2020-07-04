@@ -141,3 +141,20 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 STRIPE_PUBLISHABLE_KEY = 'sk_test_51GrazpAvPywucau1GhyCJfsmFXONw1ThPpQAeE4lKQO9WgLYd5GMrFEQQUvR7WrzAPG7hAPNEhMiCI30UGxwbCUn00DOFA3T0N'
 STRIPE_SECRET_KEY = 'sk_test_51GrazpAvPywucau1GhyCJfsmFXONw1ThPpQAeE4lKQO9WgLYd5GMrFEQQUvR7WrzAPG7hAPNEhMiCI30UGxwbCUn00DOFA3T0N'
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+        },
+    },
+}

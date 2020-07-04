@@ -1,18 +1,17 @@
+import json
+import stripe
+import time
+from django.views.decorators.csrf import csrf_exempt
+from django.http.response import JsonResponse
+import requests
+from django.conf import settings
+from django.shortcuts import render, redirect
 from django.shortcuts import render
 from .models import Question, Option, Course, Feature, Customer
 from .serializers import QuestionSerializer, OptionSerializer, CourseSerializer, FeatureSerializer, CustomerSerializer
 from rest_framework import generics
-
-from django.shortcuts import render, redirect
-from django.conf import settings  # new
-from django.http.response import JsonResponse  # new
-from django.views.decorators.csrf import csrf_exempt  # new
-
-import time
-import stripe
-import json
-
-# Create your views here.
+import logging
+logger = logging.getLogger(__name__)
 
 
 class QuestionList(generics.ListCreateAPIView):
@@ -68,11 +67,13 @@ def createIntent(request):
         currency = request.POST.get('currency'),
         description = request.POST.get('description')
 
+        # logger.info(description)
+
         # Create a PaymentIntent with the order amount and currency
         intent = stripe.PaymentIntent.create(
             amount=amountGotten,
-            currency=String(currency),
-            description=String(description),
+            currency=currency,
+            description=description,
             source=request.POST.get('token'),
             capture=request.POST.get('capture'),
 
