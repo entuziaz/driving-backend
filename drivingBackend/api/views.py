@@ -96,7 +96,7 @@ def createIntent(request):
 
         # Create a PaymentIntent with the order amount and currency
         intent = stripe.PaymentIntent.create(
-            amount=amount,
+            amount=int(amount),
             currency=currency,
             description=description,
             # source=request.POST.get('token'),
