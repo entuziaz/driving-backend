@@ -96,7 +96,7 @@ def createIntent(request):
 
         # Create a PaymentIntent with the order amount and currency
         intent = stripe.PaymentIntent.create(
-            amount=amount,
+            amount=int(amount),
             currency=currency,
             description=description,
             # source=request.POST.get('token'),
@@ -106,7 +106,7 @@ def createIntent(request):
             metadata={'integration_check': 'accept_a_payment'},
         )
         try:
-            return JsonResponse({'publishableKey':	'your test publishable key', 'clientSecret': intent.client_secret})
+            return JsonResponse({'publishableKey':	stripe.api_key, 'clientSecret': intent.client_secret})
 
         except Exception as e:
             return JsonResponse({'the error na': str(e)}, status=403)
