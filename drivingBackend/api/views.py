@@ -106,7 +106,7 @@ def createIntent(request):
             metadata={'integration_check': 'accept_a_payment'},
         )
         try:
-            return JsonResponse({'publishableKey':	'your test publishable key', 'clientSecret': intent.client_secret})
+            return JsonResponse({'publishableKey':	stripe.api_key, 'clientSecret': intent.client_secret})
 
         except Exception as e:
             return JsonResponse({'the error na': str(e)}, status=403)
