@@ -78,7 +78,7 @@ def createIntent(request):
 
         body_unicode = request.body.decode('utf-8')
         body_data = json.loads(body_unicode)
-        # print(body_data)
+        print(body_data)
         amount = body_data['amount']
         # print(amount)
         currency = body_data['currency']
