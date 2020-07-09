@@ -78,11 +78,12 @@ def createIntent(request):
 
         body_unicode = request.body.decode('utf-8')
         body_data = json.loads(body_unicode)
-        print(body_data)
+        # print(body_data)
         amount = body_data['amount']
-        print(amount)
+        # print(amount)
         currency = body_data['currency']
         description = body_data['description']
+        receipt_email = body_data['receipt_email']
 
         # print(request.body)
 
@@ -99,6 +100,7 @@ def createIntent(request):
             amount=int(amount),
             currency=currency,
             description=description,
+            receipt_email=receipt_email,
             # source=request.POST.get('token'),
             # capture=request.POST.get('capture'),
 
