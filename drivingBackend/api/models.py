@@ -69,7 +69,8 @@ class Customer(models.Model):
     email = models.EmailField(max_length=254)
     phone = models.IntegerField()
     startDate = models.DateField(auto_now=False, auto_now_add=False)
-    transType = models.CharField(max_length=50)
+    # transType = models.CharField(max_length=50)
+    postCode = models.CharField(max_length=50)
     courseChosen = models.CharField(max_length=50)
 
     def __str__(self):

@@ -101,5 +101,5 @@ class CourseSerializer(serializers.ModelSerializer):
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
-        fields = ('id', 'firstName', 'lastName', 'email', 'phone',
-                  'startDate', 'transType', 'courseChosen')
+        fields = ('firstName', 'lastName', 'email', 'phone',
+                  'startDate', 'postCode', 'courseChosen')
