@@ -30,7 +30,8 @@ SECRET_KEY = os.environ.get(
 # DEBUG = False
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['fierce-coast-31241.herokuapp.com', 'localhost', '127.0.0.1', ]
+ALLOWED_HOSTS = ['fierce-coast-31241.herokuapp.com',
+                 'localhost', '127.0.0.1', ]
 
 
 # Application definition
@@ -89,7 +90,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'drivingdb',
-        'USER': 'jheikhei',
+        'USER': 'postgres',
         'PASSWORD': 'jimx',
         'HOST': 'localhost',
         'PORT': '',
@@ -140,7 +141,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
-
 
 
 REST_FRAMEWORK = {
