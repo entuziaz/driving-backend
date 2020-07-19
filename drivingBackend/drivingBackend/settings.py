@@ -10,7 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+import django_heroku
+
 import os
+
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -30,7 +33,7 @@ SECRET_KEY = os.environ.get(
 # DEBUG = False
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['fierce-coast-31241.herokuapp.com',
+ALLOWED_HOSTS = ['blooming-atoll-85720.herokuapp.com',
                  'localhost', '127.0.0.1', ]
 
 #
@@ -187,3 +190,6 @@ LOGGING = {
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+django_heroku.settings(locals())
