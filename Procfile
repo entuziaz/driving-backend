@@ -1,1 +1,1 @@
-web: gunicorn drivingBackend/drivingBackend.wsgi --log-file -
+web: gunicorn drivingBackend.drivingBackend.wsgi --log-file -
