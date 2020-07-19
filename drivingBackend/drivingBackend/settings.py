@@ -33,7 +33,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 ALLOWED_HOSTS = ['fierce-coast-31241.herokuapp.com',
                  'localhost', '127.0.0.1', ]
 
-
+#
 # Application definition
 
 INSTALLED_APPS = [
