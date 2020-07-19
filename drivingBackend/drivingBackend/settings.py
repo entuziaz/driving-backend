@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'nu_&6$9bi8k*m2@@xc65u_5tw=h7!ld_ibzvwn^_^@90(pmis2'
+
 # SECRET_KEY = os.environ['SECRET_KEY']
 SECRET_KEY = os.environ.get(
     'DJANGO_SECRET_KEY', 'nu_&6$9bi8k*m2@@xc65u_5tw=h7!ld_ibzvwn^_^@90(pmis2')
@@ -157,12 +157,11 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-# STRIPE_PUBLISHABLE_KEY = 'sk_test_51GrazpAvPywucau1GhyCJfsmFXONw1ThPpQAeE4lKQO9WgLYd5GMrFEQQUvR7WrzAPG7hAPNEhMiCI30UGxwbCUn00DOFA3T0N'
+
 # STRIPE_PUBLISHABLE_KEY = os.environ['STRIPE_PUBLISHABLE_KEY']
 STRIPE_PUBLISHABLE_KEY = os.environ.get(
     'STRIPE_PUBLISHABLE_KEY', 'sk_test_51GrazpAvPywucau1GhyCJfsmFXONw1ThPpQAeE4lKQO9WgLYd5GMrFEQQUvR7WrzAPG7hAPNEhMiCI30UGxwbCUn00DOFA3T0N')
 
-# STRIPE_SECRET_KEY = 'sk_test_51GrazpAvPywucau1GhyCJfsmFXONw1ThPpQAeE4lKQO9WgLYd5GMrFEQQUvR7WrzAPG7hAPNEhMiCI30UGxwbCUn00DOFA3T0N'
 # STRIPE_SECRET_KEY = os.environ['STRIPE_SECRET_KEY']
 STRIPE_SECRET_KEY = os.environ.get(
     'STRIPE_SECRET_KEY', 'sk_test_51GrazpAvPywucau1GhyCJfsmFXONw1ThPpQAeE4lKQO9WgLYd5GMrFEQQUvR7WrzAPG7hAPNEhMiCI30UGxwbCUn00DOFA3T0N')
