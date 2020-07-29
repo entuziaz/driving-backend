@@ -33,8 +33,8 @@ SECRET_KEY = os.environ.get(
 # DEBUG = False
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['blooming-atoll-85720.herokuapp.com',
-                 'localhost', '127.0.0.1', ]
+ALLOWED_HOSTS = ['blooming-atoll-85720.herokuapp.com', 'http://localhost:8080',
+                 'localhost', '127.0.0.1', 'https://stupefied-shockley.netlify.app/', ]
 
 #
 # Application definition
