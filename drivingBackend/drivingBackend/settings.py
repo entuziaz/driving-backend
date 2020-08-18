@@ -56,15 +56,24 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 
 ]
+
+# CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ORIGIN_WHITELIST = (
+    'http//:localhost:8000',
+    'http://localhost:8080',
+    'https:/ukdriving.netlify.app',
+)
 
 ROOT_URLCONF = 'drivingBackend.urls'
 
@@ -158,14 +167,7 @@ REST_FRAMEWORK = {
     ]
 }
 
-# CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_ALLOW_ALL = False
 
-CORS_ORIGIN_WHITELIST = (
-    'http//:localhost:8000',
-    'http://localhost:8080',
-    'https:/ukdriving.netlify.app',
-)
 
 # STRIPE_PUBLISHABLE_KEY = os.environ['STRIPE_PUBLISHABLE_KEY']
 STRIPE_PUBLISHABLE_KEY = os.environ.get(
