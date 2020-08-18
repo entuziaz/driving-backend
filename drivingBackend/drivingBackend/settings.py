@@ -33,8 +33,8 @@ SECRET_KEY = os.environ.get(
 # DEBUG = False
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['blooming-atoll-85720.herokuapp.com',
-                 'localhost', '127.0.0.1', ]
+ALLOWED_HOSTS = ['blooming-atoll-85720.herokuapp.com', 'http://localhost:8080',
+                 'localhost', '127.0.0.1', 'https://ukdriving.netlify.app/', ]
 
 #
 # Application definition
@@ -158,8 +158,14 @@ REST_FRAMEWORK = {
     ]
 }
 
-CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
 
+CORS_ORIGIN_WHITELIST = (
+    'http//:localhost:8000',
+    'http://localhost:8080',
+    'https:/ukdriving.netlify.app',
+)
 
 # STRIPE_PUBLISHABLE_KEY = os.environ['STRIPE_PUBLISHABLE_KEY']
 STRIPE_PUBLISHABLE_KEY = os.environ.get(
