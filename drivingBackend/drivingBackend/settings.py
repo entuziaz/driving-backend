@@ -70,9 +70,9 @@ MIDDLEWARE = [
 CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = (
-    'http//:localhost:8000',
+    'http://localhost:8000',
     'http://localhost:8080',
-    'https:/ukdriving.netlify.app',
+    'https://ukdriving.netlify.app',
 )
 
 ROOT_URLCONF = 'drivingBackend.urls'
@@ -166,7 +166,6 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.JSONParser',
     ]
 }
-
 
 
 # STRIPE_PUBLISHABLE_KEY = os.environ['STRIPE_PUBLISHABLE_KEY']
