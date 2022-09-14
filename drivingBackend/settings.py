@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get(
 # DEBUG = False
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['drivng-school.netlify.app', 'drivng-backend.herokuapp.com', 'localhost' ]
+ALLOWED_HOSTS = ['drivng-school.netlify.app', 'drivng-school.herokuapp.com', 'localhost' ]
 
 #
 # Application definition
@@ -69,8 +69,8 @@ MIDDLEWARE = [
 CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:8000',
-    'https://drivng-school.netlify.app',
+    'localhost:8000',
+    'drivng-school.netlify.app',
 )
 
 ROOT_URLCONF = 'drivingBackend.urls'
