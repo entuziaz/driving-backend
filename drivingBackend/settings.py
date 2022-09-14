@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get(
 # DEBUG = False
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['drivng-backend.herokuapp.com', 'localhost' ]
+ALLOWED_HOSTS = ['drivng-school.netlify.app', 'drivng-backend.herokuapp.com', 'localhost' ]
 
 #
 # Application definition
