@@ -33,8 +33,7 @@ SECRET_KEY = os.environ.get(
 # DEBUG = False
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['blooming-atoll-85720.herokuapp.com', 'http://localhost:8080',
-                 'localhost', '127.0.0.1', 'https://ukdriving.netlify.app/', ]
+ALLOWED_HOSTS = ['drivng-backend.herokuapp.com', 'localhost' ]
 
 #
 # Application definition
@@ -71,8 +70,7 @@ CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8000',
-    'http://localhost:8080',
-    'https://ukdriving.netlify.app',
+    'https://drivng-school.netlify.app',
 )
 
 ROOT_URLCONF = 'drivingBackend.urls'
