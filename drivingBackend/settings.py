@@ -72,6 +72,7 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'localhost:8000',
     'drivng-school.netlify.app',
+    'https://drivng-school.netlify.app/',
 )
 
 ROOT_URLCONF = 'drivingBackend.urls'
