@@ -1,12 +1,6 @@
 <!-- Adapted from: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 
-<!-- PROJECT SHIELDS -->
-<
-[![LinkedIn][linkedin-shield]][https://www.linkedin.com/in/jekayinoluwa]
-
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
